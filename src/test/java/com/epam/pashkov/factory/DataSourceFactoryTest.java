@@ -27,7 +27,7 @@ public class DataSourceFactoryTest {
 
     @Test(dataProvider = "dataSourceDataProvider")
     public void testGetDataSource(DataSourceEnum dataSourceEnum, CitiesDAO citiesDAO) throws Exception {
-        CITIES_TEST_LOG.info("Testing equals of " + dataSourceEnum +" and "+ citiesDAO + "get classes methods results.");
+        CITIES_TEST_LOG.info("Testing equals of " + dataSourceEnum +" and "+ citiesDAO + " get classes methods results.");
         Assert.assertEquals(DataSourceFactory.getDataSource(dataSourceEnum).getClass(), citiesDAO.getClass());
     }
 }
