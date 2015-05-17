@@ -1,0 +1,22 @@
+<!DOCTYPE suite SYSTEM "http://testng.org/testng-1.0.dtd" >
+
+<suite name="TestSuite" verbose="1" >
+    <test name="TestDataSource" >
+        <classes>
+            <class name="com.epam.pashkov.datasource.CitiesDaoTest" />
+        </classes>
+    </test>
+
+    <test name="TestFactory">
+        <classes>
+            <class name="com.epam.pashkov.factory.DataSourceFactoryTest"/>
+        </classes>
+    </test>
+
+    <test name="TestPlayers">
+        <classes>
+            <class name="com.epam.pashkov.players.ComputerTest"/>
+            <class name="com.epam.pashkov.players.PeopleTest"/>
+        </classes>
+    </test>
+</suite>
