@@ -4,8 +4,10 @@ import com.epam.pashkov.datasource.*;
 import com.epam.pashkov.factory.DataSourceEnum;
 import com.epam.pashkov.factory.DataSourceFactory;
 import com.epam.pashkov.logic.Game;
+import com.epam.pashkov.logic.GameInterface;
 import com.epam.pashkov.players.Computer;
 import com.epam.pashkov.players.People;
+import com.epam.pashkov.players.Player;
 
 import java.util.Collection;
 import java.util.Collections;
@@ -30,15 +32,15 @@ public class Main {
         /*CitiesExcel citiesExcel = new CitiesExcel();
         citiesExcel.writeCitiesListToFile(new CitiesJdbc().getAllCities());*/
 
-        Game game = new Game(new People(), new Computer());
+        GameInterface<Player> game = new Game<Player>();
         CitiesDAO citiesData = DataSourceFactory.getDataSource(DataSourceEnum.JDBC);
 
         // People starts first
         if(args.length!=0) {
-            game.startGame(citiesData, args[0]);
+            game.startGame(citiesData, args[0], new People(), new Computer());
         }
         else{
-            game.startGame(citiesData, "Киев");
+            game.startGame(citiesData, "Киев", new People(), new Computer());
         }
     }
 }

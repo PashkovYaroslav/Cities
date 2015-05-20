@@ -10,9 +10,9 @@ import java.util.Scanner;
 /**
  * Created by Yaroslav_Pashkov on 5/15/2015.
  */
-public class Game {
-    private Player people;
-    private Player computer;
+public class Game<T extends Player> implements GameInterface<T> {
+    private T people;
+    private T computer;
     private List<String> historyList;
     public Scanner sc = new Scanner(System.in);
 
@@ -20,7 +20,7 @@ public class Game {
         return people;
     }
 
-    public void setPeople(Player people) {
+    public void setPeople(T people) {
         this.people = people;
     }
 
@@ -28,7 +28,7 @@ public class Game {
         return computer;
     }
 
-    public void setComputer(Player computer) {
+    public void setComputer(T computer) {
         this.computer = computer;
     }
 
@@ -40,12 +40,12 @@ public class Game {
         this.historyList = historyList;
     }
 
-    public Game(Player people, Player computer) {
-        this.people = people;
-        this.computer = computer;
+    public Game() {
     }
 
-    public void startGame(CitiesDAO dataSource, String playerStartWord){
+    public void startGame(CitiesDAO dataSource, String playerStartWord, T people, T computer){
+        setPeople(people);
+        setComputer(computer);
         String city = playerStartWord;
         historyList = new ArrayList<String>();
         while(true){
