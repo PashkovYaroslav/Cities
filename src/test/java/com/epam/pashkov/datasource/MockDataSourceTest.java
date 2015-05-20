@@ -22,7 +22,7 @@ public class MockDataSourceTest {
         expect(mock.getCity(CITY));
         replay();
 
-        people.sayCity(new CitiesExcel(),new ArrayList<String>(),CITY,"Львов");
+        people.sayCity(mock,new ArrayList<String>(),CITY,"Львов");
         verify();
     }
 }
